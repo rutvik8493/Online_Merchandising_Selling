@@ -1,0 +1,179 @@
+/*
+ * Name: Desai, Rutvik
+ * Class Account#: jadrn010
+ * Project #1
+ */
+
+body {
+    background-image: url("../images/image1.jpg");
+    background-size: cover;
+    font-family: "Roboto", sans-serif;
+}
+
+#head {
+    margin: auto;
+    width: 70%;
+    padding: 25px;
+}
+
+#title, #logout {
+    color: #fff;
+    text-decoration: none;
+}
+
+#symbol {
+    background-color: #000;
+    text-align: center;
+    margin: auto;
+    float: center;
+    width: 30%;
+    border: 3px solid white;
+    padding: 10px;
+    opacity: 0.7;
+}
+
+#log {
+    background-color: #000;
+    border: 1px solid white;
+    text-align: center;
+    font-size: 20px;
+    width: 15%;
+    float: right;
+    opacity: 0.7;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#tab1 {
+    height: 100%;
+    background: #ccf2ff;
+    border: 1px solid #009;
+    padding: 0px 20px 20px 20px;
+}
+
+#tab2 {
+    height: 100%;
+    background: #e1e1d0;
+    border: 1px solid #009;
+    padding: 0px 20px 20px 20px;
+}
+
+#tab3 {
+    height: 100%;
+    background: #ffc2b3;
+    border: 1px solid #009;
+    padding: 0px 20px 20px 20px;
+}
+
+.tabs {
+    margin: auto;
+    width: 70%;
+}
+
+.tab_link:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+.tab_link {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 22px;
+    border-bottom: 1px solid #000;
+}
+
+.tab_link li {
+    float: left;
+    list-style: none;
+}
+
+.tab_link a {
+    padding: 3px 15px 0px;
+    display: inline-block;
+    border-radius: 10px 10px 0px 0px;
+    background: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    transition: all linear 0.15s;
+}
+
+.tab_link a:hover {
+    background: #f2f2f2;
+    text-decoration: underline;
+}
+
+li.active a, li.active a:hover {
+    background: #ddd;
+    text-decoration: underline;
+}
+
+.tab_content {
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+    background: #ddd;
+}
+
+.tab.active {
+    display: block;
+    background-color: #ccc;
+}
+
+#content {
+    height: 100%;
+    width: 95%;
+    padding: 20px;
+    margin: auto;
+}
+
+#reset {
+    background: #ffb3b3;
+    color: #000;
+}
+
+#skuchange {
+    color: RED;
+}
+
+.val {
+    color: RED;
+}
+
+#piclabel, #temp, #addTemp {
+    display: none;
+}
+
+#addConf, #editConf, #delConf {
+    color: Red;
+    display: none;
+}
+
+#table_data {
+    display: none;
+}
+
+#wait {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba( 100, 100, 100, .3) url("../images/loading.gif") 50% 50% no-repeat;
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+body.loading #wait {
+    display: block;
+}

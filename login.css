@@ -1,0 +1,113 @@
+/*
+ * Name: Desai, Rutvik
+ * Class Account#: jadrn010
+ * Project #1
+ */
+
+.login_page {
+    width: 50%;
+    padding: 3% 0 0;
+    margin: auto;
+}
+
+.company_name {
+    width: 100%;
+    font-family: Chalkduster;
+    font-style: italic;
+    text-align: center;
+    font-size: 70px;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    margin-top: 8%;
+}
+
+.login_form {
+    position: relative;
+    z-index: 1;
+    background: #E9DBC1;
+    max-width: 30%;
+    margin: 0 auto 100px;
+    padding: 45px 45px 30px 45px;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.login_form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+#login {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #5dd55d;
+    width: 40%;
+    border: 0;
+    padding: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+#loginReset {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #0080ff;
+    width: 40%;
+    border: 0;
+    padding: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.login_form input:focus {
+    border-color: blue;
+}
+
+#loginReset:hover {
+    background: #004080;
+}
+
+#login:hover {
+    background: #258e25;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    background-image: url("../images/login_bg.jpg");
+    background-size: cover;
+    font-family: "Roboto", sans-serif;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+#loginStatus {
+    color: RED;
+}
+
+#user, #pass {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}

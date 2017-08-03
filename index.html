@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+	Name: Desai, Rutvik
+	Class Account#: jadrn010
+	Project #1
+-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Magic Guitars</title>
+    <link rel="stylesheet" href="css/tab.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="/jquery/jquery.js"></script>
+    <script src="/jquery/jQueryUI.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/ajax_get_lib.js"></script>
+    <script src="js/add_data.js"></script>
+    <script src="js/edit_data.js"></script>
+    <script src="js/delete_data.js"></script>
+    <script src="js/login.js"></script>
+</head>
+
+<body>
+
+
+    <div id="loginPage">
+        <div class="company_name">Magic Guitars</div>
+        <div class="login_page">
+            <form class="login_form" method="POST">
+                <div class="form">
+                    <input type="text" name="user" id="user" placeholder="username" autofocus required>
+                    <input type="password" name="password" id="pass" placeholder="password" required>
+                    <input class="clear_button" type="reset" id="loginReset" value="Reset">
+                    <input type="button" class="login_button" value="Login" class="button" id="login">
+                </div>
+                <div id="loginStatus"></div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+    <div id="homePage">
+        <div id="head">
+            <div id="symbol">
+                <h1><a href="main.html" id="title">~ Magic Guitars ~</a></h1>
+            </div>
+            <div id="log">
+                <a href="#" id="logout">Logout Now</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <ul class="tab_link">
+                <li class="active"><a href="#tab1">Add Record</a></li>
+                <li><a href="#tab2">Edit Record</a></li>
+                <li><a href="#tab3">Delete Record</a></li>
+            </ul>
+            <div class="tab_content">
+                <div id="tab1" class="tab active">
+                    <form method="post" enctype="multipart/form-data" id="form1" name="dataForm" action="">
+                        <h2>Add New Item</h2>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>SKU:
+                                        <font color="red">*</font>
+                                    </td>
+                                    <td><input type="text" name="sku" id="sku" size="20" placeholder="XXX-000" autofocus></td>
+                                    <td>
+                                        <div class="val" id="sku_status"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Category:
+                                        <font color="red">*</font>
+                                    </td>
+                                    <td><select name="category" id="category">
+         		</select></td>
+                                    <td>
+                                        <div id="validation2" class="val"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Vendor:
+                                        <font color="red">*</font>
+                                    </td>
+                                    <td><select name="vendor" id="vendor">
+			</select></td>
+                                    <td>
+                                        <div id="validation4" class="val"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Manufacturer's Identifier:
+                                        <font color="red">*</font>
+                                    </td>
+                                    <td><input type="text" name="manufacturer" id="manufacturer" size="20"></td>
+                                    <td>
+                                        <div id="validation5" class="val"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Description:
+                                        <font color="red">*</font>
+                                    </td>
+                                    <td><textarea rows="4" name="description" id="description" cols="30"></textarea></td>
+                                    <td>
+                                        <div id="validation6" class="val"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Features:
+                                        <font color="red">*</font>
+                                    </td>
+                                    <td><textarea rows="4" name="features" id="features" cols="30"></textarea></td>
+                                    <td>
+                                        <div id="validation7" class="val"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Cost:
+                                        <font color="red">*</font>
+                                    </td>
+                                    <td><input type="number" min="1" step=".01" name="cost" id="cost" size="20"></td>
+                                    <td>
+                                        <div id="validation8" class="val"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Retail:
+                                        <font color="red">*</font>
+                                    </td>
+                                    <td><input type="number" min="1" step=".01" name="retail" id="retail" size="20"></td>
+                                    <td>
+                                        <div id="validation9" class="val"></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Product Image:
+                                        <font color="red">*</font>
+                                    </td>
+                                    <td><input type="file" name="image_upload" id="image_upload" accept="image/*"></td>
+                                    <td>
+                                        <div id="pic" />
+                                    </td>
+                                    <td>
+                                        <div id="validation10" class="val"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <button class="clear_button" id="reset" type="reset">Reset</button>&nbsp &nbsp &nbsp
+                                        <button type="button" class="submit_button" id="submit" disabled>Submit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div id="addTemp"></div>
+                    </form>
+                    <div id="addConf">New record added successfully!</div>
+                </div>
+                <div id="tab2" class="tab">
+                    <form method="post" enctype="multipart/form-data" id="form2" name="editForm" action="">
+                        <h2>Edit Existing Record</h2>
+                        <div>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>SKU:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td><input type="text" name="edit_sku" id="edit_sku" size="20" placeholder="XXX-000" autofocus></td>
+                                        <td>
+                                            <div id="edit_sku_status" class="val"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Category:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td><select name="edit_category" id="edit_category">
+         		</select></td>
+                                        <td>
+                                            <div id="edit_validation2" class="val"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vendor:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td><select name="edit_vendor" id="edit_vendor">
+			</select></td>
+                                        <td>
+                                            <div id="edit_validation4" class="val"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Manufacturer's Identifier:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td><input type="text" name="edit_manufacturer" id="edit_manufacturer" size="20"></td>
+                                        <td>
+                                            <div id="edit_validation5" class="val"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Description:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td><textarea rows="4" name="edit_description" id="edit_description" cols="30"></textarea></td>
+                                        <td>
+                                            <div id="edit_validation6" class="val"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td><textarea rows="4" name="edit_features" id="edit_features" cols="30"></textarea></td>
+                                        <td>
+                                            <div id="edit_validation7" class="val"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cost:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td><input type="number" min="1" step=".01" name="edit_cost" id="edit_cost" size="20"></td>
+                                        <td>
+                                            <div id="edit_validation8" class="val"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Retail:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td><input type="number" min="1" step=".01" name="edit_retail" id="edit_retail" size="20"></td>
+                                        <td>
+                                            <div id="edit_validation9" class="val"></div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Product Image:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td>
+                                            <div id=piclabel></div><input type="file" name="edit_image_upload" id="edit_image_upload" accept="image/*"></td>
+                                        <td>
+                                            <div id="edit_pic" />
+                                        </td>
+                                        <td>
+                                            <div id="edit_validation10" class="val"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><button type="button" class="button" id="edit_update" disabled>Update</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="skuchange">If the SKU needs to be updated, please delete the record from delete section and then re-add the record from the add section.</div>
+                            <div id="editConf">Record data updated successfully!</div>
+                            <div id="temp"></div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+                <div id="tab3" class="tab">
+                    <form method="post" enctype="multipart/form-data" id="form3" name="deleteForm" action="">
+                        <h2>Delete Record</h2>
+                        <div>
+                            <table id="table_sku">
+                                <tbody>
+                                    <tr>
+                                        <td>SKU:
+                                            <font color="red">*</font>
+                                        </td>
+                                        <td></td>
+                                        <td><input type="text" name="del_sku" id="del_sku" size="20" placeholder="XXX-000" autofocus></td>
+                                        <td>
+                                            <div id="del_sku_status" class="val"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table id="table_data">
+                                <tbody>
+                                    <tr>
+                                        <td>Category:</td>
+                                        <td><select name="del_category" id="del_category" disabled>
+         		</select></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vendor:</td>
+                                        <td><select name="del_vendor" id="del_vendor" disabled>
+			</select></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Manufacturer's Identifier:</td>
+                                        <td><input type="text" name="del_manufacturer" id="del_manufacturer" size="20" disabled></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Description:</td>
+                                        <td><textarea rows="4" name="del_description" id="del_description" cols="30" disabled></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features:</td>
+                                        <td><textarea rows="4" name="del_features" id="del_features" cols="30" disabled></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cost:</td>
+                                        <td><input type="text" name="del_cost" id="del_cost" size="20" disabled></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Retail:</td>
+                                        <td><input type="text" name="del_retail" id="del_retail" size="20" disabled></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Product Image:</td>
+                                        <td>
+                                            <div id=del_piclabel></div>
+                                        </td>
+                                        <td>
+                                            <div id="del_pic" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" class="button" id="delete" disabled>Delete</button>
+                    </form>
+
+                    </div>
+                    <div id="delConf">Record deleted successfully!</div>
+                </div>
+            </div>
+        </div>
+        <div id="wait"></div>
+</body>
+
+</html>
